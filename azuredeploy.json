@@ -368,20 +368,18 @@
                 "vmSize": "[parameters('masterVMSize')]"
             },
             "agentPoolProfiles": [{
-                    "name": "winpool",
-                    "count": "[parameters('windowsAgentCount')]",
-                    "vmSize": "[parameters('windowsAgentVMSize')]",
-                    "dnsPrefix": "[variables('agentsEndpointDNSNamePrefix')]",
-                    "osType": "Windows"
-                },
-                {
-                    "name": "linuxpool",
-                    "count": "[parameters('linuxAgentCount')]",
-                    "vmSize": "[parameters('linuxAgentVMSize')]",
-                    "dnsPrefix": "[variables('agentsEndpointDNSNamePrefix')]",
-                    "osType": "Linux"
-                }
-            ],
+                "name": "linuxpool",
+                "count": "[parameters('linuxAgentCount')]",
+                "vmSize": "[parameters('linuxAgentVMSize')]",
+                "dnsPrefix": "[variables('agentsEndpointDNSNamePrefix')]",
+                "osType": "Linux"
+            }, {
+                "name": "winpool",
+                "count": "[parameters('windowsAgentCount')]",
+                "vmSize": "[parameters('windowsAgentVMSize')]",
+                "dnsPrefix": "[variables('agentsEndpointDNSNamePrefix')]",
+                "osType": "Windows"
+            }],
             "diagnosticsProfile": "[variables('diagnosticProfileFields')[variables('isUK')]]",
             "linuxProfile": {
                 "adminUsername": "[parameters('linuxAdminUsername')]",
